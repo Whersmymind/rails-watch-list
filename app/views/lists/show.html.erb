@@ -1,0 +1,22 @@
+<h1>Watch list : <%= @list.name %></h1>
+
+<h2><%= @list.name %></h2>
+
+<% @list.movies.each do |l| %>
+<li><%= l.title %></li>
+<li><%= l.overview %></li>
+<li><%= image_tag l.poster_url %></li>
+<li><%= l.rating %></li>
+<% @bookmark=Bookmark.find_by(list:@list, movie:l) %>
+<%= @bookmark.comment %></li>
+<%= link_to 'Delete this Movie',
+            bookmark_path(@bookmark),
+            method: :delete,
+            data: { confirm: 'Is it your last words ?'} %>
+<% end %>
+
+
+<br>
+<br>
+<%= link_to 'My Lists', lists_path %> |
+<%= link_to 'Add a movie', new_list_bookmark_path(@list) %>

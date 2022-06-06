@@ -1,6 +1,9 @@
-<h1>Watch list : <%= @list.name %></h1>
-
-<h2><%= @list.name %></h2>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('list_background.jpg') %>)">
+  <div class="container">
+    <h1>Watch list : <%= @list.name %></h1>
+    <p><%= @list.name %></p>
+  </div>
+</div>
 
 <% @list.movies.each do |l| %>
 <li><%= l.title %></li>
@@ -14,7 +17,6 @@
             method: :delete,
             data: { confirm: 'Is it your last words ?'} %>
 <% end %>
-
 
 <br>
 <br>
